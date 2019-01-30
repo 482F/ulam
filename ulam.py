@@ -18,3 +18,12 @@ def make_direction(mr, mc):
 def make_width(mr, mc):
     return [mr - 1, mc - 1]
 
+def next_direction(current_direction):
+    current_direction = tuple(current_direction)
+    direction_dict = {
+            (-1, 0): [0, -1],
+            (0, -1): [1, 0],
+            (1, 0): [0, 1],
+            (0, 1): [-1, 0],
+            }
+    return direction_dict[current_direction]
