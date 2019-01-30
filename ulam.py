@@ -50,5 +50,15 @@ def pos_list(mx, my):
         pos[index] += direction[index]
         pos_list.append(pos[:])
     return pos_list[::-1]
-print(pos_list(4, 3))
 
+mx = 5
+my = 3
+img = Image.new('RGB', (mx, my))
+poss = pos_list(mx, my)
+NoDs = NoD_list(mx * my)
+for num in range(mx * my):
+    color = NoDs[num] * 50
+    color = [color for k in range(3)]
+    print(poss[num])
+    img.putpixel(tuple(poss[num]), tuple(color))
+img.show()
