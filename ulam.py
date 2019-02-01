@@ -9,3 +9,12 @@ def NoD_list(mn):
     #mn = 10 -> [0, 1, 1, 2, 1, 3, 1, 2, 2,  3]
     #           [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
+def start_pos(mr, mc):
+    return [mr - 1, mc - 1]
+
+def make_direction(mr, mc):
+    return [-1, 0]
+
+def make_width(mr, mc):
+    return [mr - 1, mc - 1]
+
