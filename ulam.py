@@ -27,3 +27,25 @@ def next_direction(current_direction):
             (0, 1): [-1, 0],
             }
     return direction_dict[current_direction]
+def pos_list(mr, mc):
+    num = 1
+    pos = start_pos(mr, mc)
+    pos_list = [pos[:]]
+    direction = make_direction(mr, mc)
+    width = make_width(mr, mc)
+    current_width = width[:]
+    width[0] += 1
+    index = 0
+    while (num <= (mr * mc) - 1):
+        if (current_width[index] == 0):
+            width[index] -= 1
+            current_width = width[:]
+            direction = next_direction(direction)
+            index = [1, 0][index]
+        current_width[index] -= 1
+        num += 1
+        pos[index] += direction[index]
+        pos_list.append(pos[:])
+    return pos_list[::-1]
+print(pos_list(4, 3))
+
