@@ -51,14 +51,18 @@ def pos_list(mx, my):
         pos_list.append(pos[:])
     return pos_list[::-1]
 
-mx = 5
-my = 3
+def normalization(target):
+    ma = max(target)
+    mi = min(target)
+    return [int((num - mi) / ma * 255) for num in target]
+
+mx = 20
+my = 10
 img = Image.new('RGB', (mx, my))
 poss = pos_list(mx, my)
-NoDs = NoD_list(mx * my)
+NoDs = normalization(NoD_list(mx * my))
 for num in range(mx * my):
-    color = NoDs[num] * 50
+    color = NoDs[num]
     color = [color for k in range(3)]
-    print(poss[num])
     img.putpixel(tuple(poss[num]), tuple(color))
 img.show()
